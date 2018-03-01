@@ -1,12 +1,12 @@
 ---
 title: API - Sofia | Versão 1.0.0
 
-language_tabs: # must be one of https://git.io/vQNgJ
+language_tabs:
   - shell
   - python
 
 toc_footers:
-  - <a href='https://github.com/willcode-labs/sofia'>Repositorio do projeto</a>
+  - <a href='https://github.com/willcode-labs/sofia'>Repositório do projeto</a>
 
 includes:
   - errors
@@ -16,21 +16,42 @@ search: true
 
 # Introdução
 
-Documentação da api do projeto Sofia.
+Projeto de sistema integrado para comercio digital [CODINOME Sofia].
 
-A api foi desenvolvida visando o padrão REST.
+Modulo: Core
 
-# 1. Autenticação
+Api desenvolvida visando o padrão REST.
 
-> Obtendo o TOKEN de autenticação:
+# Ambiente
+
+Lista de ambientes da API.
+
+| Domínio/Subdomínio | Tipo |
+| --- | --- |
+| https://XXXXXXXXXX | DSV |
+| https://XXXXXXXXXX | HLG |
+| https://XXXXXXXXXX | PROD |
+
+# Configuração
+
+TODO
+
+Lista das configurações:
+
+| Nome | Valor | Descrição |
+| --- | --- | --- |
+| | | |
+
+# 1. Verificação
+
+> Verificação de usuário e geração do primeiro TOKEN de autenticação:
 
 ```shell
 curl 
-  -d "login={login}&senha={senha}&user_type={user_type}"
-  -H "Content-Type: application/x-www-form-urlencoded"
-  -H "X-APIKEY: {APIKEY}"
+  -H "Content-Type: application/json"
+  -H "X-TOKEN: XXXXXX"
   -X POST
-  {api-host}/v1/auth/login
+  XXXXXX/api/v1/auth/verify/
 }
 ```
 
@@ -38,24 +59,37 @@ curl
 # TODO
 ```
 
-> Substitua as variáveis entre **{}** para obter um resultado.
+> Substitua as variáveis **XXXXXX** para obter um resultado.
 
-<aside class="notice">EndPoint: /v1/auth/login</aside>
+<aside class="notice">EndPoint: /api/v1/auth/verify/</aside>
 <aside class="success">HTTP: POST</aside>
 
-O WS contem um sistema interno de armazenamento e controle das APIKEY, identificando
-a origem e tipos de usuários que podem acessar.
+Rota para validar usuário, sempre que um novo usuário é criado, um email com o link
+de validação é encaminhado para o email de cadastro.
 
-Para identificar os tipos de usuários que uma APIKEY possui, deve-se consultar
-a tabela `app` ou junto a equipe de TI.
+Nenhuma operação funcionará até que o usuário esteja validado.
 
-O login e senha são os mesmos utilizados no portal SIGA ou Portal acadêmico, contendo
-as mesmas regras e permissões.
+# 2. Autenticação
 
-A senha contém uma medida de segurança a mais, fazendo necessário codificar para base64
-antes de submeter para a API.
+> Obtendo o TOKEN de autenticação:
 
-Alem da autenticação na API, uma sessão é disponibilizada, a mesma criada pelo SIGA.
+```shell
+curl 
+  -d '{"username":"XXXXXX","password":"XXXXXX"}'
+  -H "Content-Type: application/json"
+  -H "X-APIKEY: XXXXXX"
+  -X POST
+  XXXXXX/api/v1/auth/login/
+}
+```
 
-Se tudo correr bem, o resultado será um TOKEN, que será utilizado por todas
-as rotas da api, para validação e autenticação.
+```python
+# TODO
+```
+
+> Substitua as variáveis **XXXXXX** para obter um resultado.
+
+<aside class="notice">EndPoint: /api/v1/auth/login/</aside>
+<aside class="success">HTTP: POST</aside>
+
+TODO
