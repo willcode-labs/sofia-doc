@@ -34,9 +34,37 @@ Lista de ambientes da API.
 
 # Regras de negócio
 
-TODO
+Regras e definições de negocio estarão disponíveis neste tópico.
 
-## 1. XXXXXX
+## 1. RN01 - Verificação e Autenticação
+
+A loja deverá ter um formulário de cadastro, para novos usuários, todo novo usuário
+deverá ter o perfil de cliente **CLIENT**.
+
+Apos o cadastro de nome, email, usuário e senha, um email será disparado para o novo
+usuário, nele conterá um link de verificação.
+
+Para usuários não verificados, nenhuma opção estará disponivel.
+Para usuário verificados estará habilitado as funcionalidades do sistema.
+
+A autenticação será sempre por usuário e senha, mais sua **APIKEY**.
+
+<aside class="notice">
+<strong>APIKEY</strong> É uma chave que identifica o perfil de acesso de um usuário, ela pode ser
+ativada/desativada conforme necessidade.
+</aside>
+
+São três tipos de perfil para **APIKEY**: **ROOT**, **DIRECTOR** e **CLIENT**.
+
+Cada EndPoint da API será limitada para um ou mais tipos de perfil de **APIKEY**.
+
+Para áreas administrativas e funcionalidades especificas do sistema sempre será
+utilizada uma **APIKEY** do tipo **ROOT** ou **DIRECTOR**.
+
+Especificamente para autenticação e verificação de usuário será sempre uma
+**APIKEY** do tipo **CLIENT**.
+
+O sistema deverá armazenar em sessão o **TOKEN** de autenticação dos usuários.
 
 # Configuração
 
