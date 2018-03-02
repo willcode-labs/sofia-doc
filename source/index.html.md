@@ -32,6 +32,12 @@ Lista de ambientes da API.
 | https://XXXXXXXXXX | HLG |
 | https://XXXXXXXXXX | PROD |
 
+# Regras de negócio
+
+TODO
+
+## 1. XXXXXX
+
 # Configuração
 
 TODO
@@ -42,7 +48,9 @@ Lista das configurações:
 | --- | --- | --- |
 | | | |
 
-# 1. Verificação
+# EndPoints
+
+## 1. Verificação
 
 > Verificação de usuário e geração do primeiro TOKEN de autenticação:
 
@@ -69,7 +77,7 @@ de validação é encaminhado para o email de cadastro.
 
 Nenhuma operação funcionará até que o usuário esteja validado.
 
-# 2. Autenticação
+## 2. Autenticação
 
 > Obtendo o TOKEN de autenticação:
 
@@ -92,4 +100,7 @@ curl
 <aside class="notice">EndPoint: /api/v1/auth/login/</aside>
 <aside class="success">HTTP: POST</aside>
 
-TODO
+Para efetuar uma autenticação de usuário basta passar os paramêtros de usuário e senha,
+junto com uma APIKEY, que juntos identificam o perfil de acesso.
+
+Se a autenticação for válida, um token será retornado.
