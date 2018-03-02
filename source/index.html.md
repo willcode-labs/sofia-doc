@@ -36,7 +36,7 @@ Lista de ambientes da API.
 
 Regras e definições de negocio estarão disponíveis neste tópico.
 
-## 1. RN01 - Verificação e Autenticação
+## RN01 - Verificação e Autenticação
 
 A loja deverá ter um formulário de cadastro, para novos usuários, todo novo usuário
 deverá ter o perfil de cliente **CLIENT**.
@@ -97,8 +97,14 @@ curl
 
 > Substitua as variáveis **XXXXXX** para obter um resultado.
 
-<aside class="notice">EndPoint: /api/v1/auth/verify/</aside>
-<aside class="success">HTTP: POST</aside>
+<aside class="success">
+    <strong>ENDPOINT:</strong> /api/v1/auth/verify/
+</aside>
+
+| Nome | Valor |
+| --- | --- |
+| **HTTP METHOD** | POST |
+| **PROFILE_ID** | CLIENT [1] |
 
 Rota para validar usuário, sempre que um novo usuário é criado, um email com o link
 de validação é encaminhado para o email de cadastro.
@@ -125,8 +131,14 @@ curl
 
 > Substitua as variáveis **XXXXXX** para obter um resultado.
 
-<aside class="notice">EndPoint: /api/v1/auth/login/</aside>
-<aside class="success">HTTP: POST</aside>
+<aside class="success">
+    <strong>ENDPOINT:</strong> /api/v1/auth/login/
+</aside>
+
+| Nome | Valor |
+| --- | --- |
+| **HTTP METHOD** | POST |
+| **PROFILE_ID** | CLIENT [1] |
 
 Para efetuar uma autenticação de usuário basta passar os paramêtros de usuário e senha,
 junto com uma APIKEY, que juntos identificam o perfil de acesso.
