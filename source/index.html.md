@@ -1,12 +1,12 @@
 ---
-title: API - Sophia | Versão 1.0.0
+title: API - Sofia | Versão 1.0.0
 
 language_tabs:
   - shell
   - python
 
 toc_footers:
-  - <a href='https://github.com/willcode-labs/sophia'>Repositório do projeto</a>
+  - <a href='https://github.com/willcode-labs/sofia'>Repositório do projeto</a>
 
 includes:
   - errors
@@ -16,7 +16,7 @@ search: true
 
 # Introdução
 
-Projeto de sistema integrado para comercio digital [CODINOME Sophia].
+Projeto de sistema integrado para comercio digital [CODINOME Sofia].
 
 Modulo: Core
 
@@ -91,8 +91,10 @@ uma exceção impedirá o acesso.
 
 ## RN02 - Cadastro simples de cliente
 
-Uma api para cadastro simples de cliente, onde apenas os dados **nome**, **CPF** e **email**
+Uma api para cadastro simples de cliente, onde apenas os dados: **name**, **cpf**, **email** e **password**
 serão requeridos.
+
+O username deverá ser igual ao email.
 
 Este simples cadastro tem o objetivo de liberar o cliente ou visitante rapidamente
 para uma compra.
