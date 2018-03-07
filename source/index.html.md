@@ -51,14 +51,14 @@ A autenticação será sempre por usuário e senha, mais sua **APIKEY**.
 
 <aside class="notice">
 <strong>APIKEY</strong> Chave que identifica o perfil de acesso de um usuário, ela pode ser
-ativada/desativada conforme necessidade. Existem três tipos de perfis: 
+ativada/desativada conforme necessidade. Existem três tipos de perfis:
 <strong>ROOT</strong>, <strong>DIRETOR</strong> e <strong>CLIENT</strong>.
 </aside>
 
 São três tipos de perfil para **APIKEY**: **ROOT**, **DIRECTOR** e **CLIENT**.
 
 <aside class="notice">
-    <strong>Perfil ROOT</strong> Utilizado somente no sistema <strong>Charlotte</strong>, que fará a 
+    <strong>Perfil ROOT</strong> Utilizado somente no sistema <strong>Charlotte</strong>, que fará a
 gestão de clientes do sistema, controlando recursos, custos, financeiro e ativação/desativação
 do sistema.
 </aside>
@@ -102,11 +102,19 @@ para uma compra.
 A api ainda enviará um email de verificação de autenticidade para o email cadastro,
 com o link de verificação.
 
-Usuários não verificados não poderam efetuar nenhuma ação de compra ou gerenciável
-sem antes estár devidamente verificado.
+Usuários não verificados não poderão efetuar nenhuma ação de compra ou gerenciável.
 
-Evidentemente antes de concluir sua primeira compra, um endereço de entrega/cobrança
+Para concluir as compras, pelo menos um endereço de entrega/cobrança
 deverá ser cadastrado.
+
+<aside class="notice">
+<strong>Endereço de entrega e de cobrança</strong> O usuário da loja não precisa
+necessáriamente cadastrar os dois endereços, assume-se que o endereço de entrega
+é o mesmo para o de cobrança. Na aréa administrativa do usuário, um endereço de cobrança
+poderá ser cadastrado, assim como outros endereços de entrega.
+Somente um endereço de entrega e um endereço de cobrança podem estar ativos. Os demais
+ficarão opcionais.
+</aside>
 
 # Configuração
 
@@ -135,7 +143,7 @@ A API contem regras para os principais tipos de requisição PHP.
 > Verificação de usuário e geração do primeiro TOKEN de autenticação:
 
 ```shell
-curl 
+curl
   -H "Content-Type: application/json"
   -H "X-TOKEN: XXXXXX"
   -X POST
@@ -185,7 +193,7 @@ Retorno em format JSON.
 > Obtendo o TOKEN de autenticação:
 
 ```shell
-curl 
+curl
   -d '{"username":"XXXXXX","password":"XXXXXX"}'
   -H "Content-Type: application/json"
   -H "X-APIKEY: XXXXXX"
